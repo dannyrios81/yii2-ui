@@ -1,0 +1,201 @@
+# GitLab CI/CD Pipeline for Design System Validation
+
+stages:
+  - install
+  - lint
+  - test
+  - build
+  - deploy
+
+variables:
+  NODE_VERSION: "18"
+  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
+
+# Cache node_modules
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .npm/
+
+# Install dependencies
+install:
+  stage: install
+  image: node:${NODE_VERSION}
+  script:
+    - npm ci --prefer-offline
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 day
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Lint code
+lint:
+  stage: lint
+  image: node:${NODE_VERSION}
+  dependencies:
+    - install
+  script:
+    - npm run lint
+  allow_failure: false
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Run tests
+test:
+  stage: test
+  image: node:${NODE_VERSION}
+  dependencies:
+    - install
+  script:
+    - npm run test
+  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+    paths:
+      - coverage/
+    expire_in: 30 days
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Build Storybook
+build:storybook:
+  stage: build
+  image: node:${NODE_VERSION}
+  dependencies:
+    - install
+  script:
+    - npm run build-storybook
+  artifacts:
+    paths:
+      - storybook-static/
+    expire_in: 1 week
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Validate Design System
+validate:design-system:
+  stage: test
+  image: node:${NODE_VERSION}
+  dependencies:
+    - install
+  script:
+    - echo "Validating Design System structure..."
+    - |
+      # Check if all required directories exist
+      for dir in src/components/atoms src/components/molecules src/components/organisms stories; do
+        if [ ! -d "$dir" ]; then
+          echo "Error: Required directory $dir does not exist"
+          exit 1
+        fi
+      done
+    - echo "Validating component structure..."
+    - |
+      # Check if components have corresponding stories
+      for component in src/components/**/*.js; do
+        story="${component/src\/components/stories}"
+        story="${story/.js/.stories.js}"
+        if [ ! -f "$story" ]; then
+          echo "Warning: Story not found for $component"
+        fi
+      done
+    - echo "Design System validation completed successfully"
+  allow_failure: false
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Deploy Storybook to GitLab Pages
+pages:
+  stage: deploy
+  image: node:${NODE_VERSION}
+  dependencies:
+    - build:storybook
+  script:
+    - mv storybook-static public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+
+# Deploy to staging
+deploy:staging:
+  stage: deploy
+  image: node:${NODE_VERSION}
+  dependencies:
+    - build:storybook
+  script:
+    - echo "Deploying to staging environment..."
+    - echo "Storybook URL will be available at staging server"
+    # Add your staging deployment commands here
+  environment:
+    name: staging
+    url: https://staging.design-system.example.com
+  only:
+    - develop
+
+# Deploy to production
+deploy:production:
+  stage: deploy
+  image: node:${NODE_VERSION}
+  dependencies:
+    - build:storybook
+  script:
+    - echo "Deploying to production environment..."
+    - echo "Storybook URL will be available at production server"
+    # Add your production deployment commands here
+  environment:
+    name: production
+    url: https://design-system.example.com
+  when: manual
+  only:
+    - main
+
+# Security scanning
+security:scan:
+  stage: test
+  image: node:${NODE_VERSION}
+  dependencies:
+    - install
+  script:
+    - npm audit --audit-level=moderate
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Performance check
+performance:check:
+  stage: test
+  image: node:${NODE_VERSION}
+  dependencies:
+    - build:storybook
+  script:
+    - echo "Checking bundle size..."
+    - du -sh storybook-static/
+    - |
+      SIZE=$(du -sm storybook-static/ | cut -f1)
+      if [ $SIZE -gt 50 ]; then
+        echo "Warning: Bundle size is larger than 50MB"
+      fi
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
+    - develop

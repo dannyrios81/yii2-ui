@@ -1,0 +1,64 @@
+{
+    "name": "iguazoft/yii2-ui",
+    "description": "Complete Yii2 extension for creating modern dashboard interfaces with 50+ widgets based on Bootstrap 5 and Atomic Design",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "yii2-extension",
+        "dashboard",
+        "bootstrap5",
+        "ui",
+        "widgets",
+        "admin",
+        "backend",
+        "atomic-design",
+        "design-system",
+        "components",
+        "forms",
+        "tables",
+        "charts",
+        "iguazoft"
+    ],
+    "homepage": "https://github.com/iguazoft/yii2-ui",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iguazoft",
+            "email": "info@iguazoft.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/iguazoft/yii2-ui/issues",
+        "source": "https://github.com/iguazoft/yii2-ui",
+        "docs": "https://github.com/iguazoft/yii2-ui/blob/main/README.md"
+    },
+    "require": {
+        "php": ">=7.4.0",
+        "yiisoft/yii2": "~2.0.0",
+        "yiisoft/yii2-bootstrap5": "~2.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "yiisoft/yii2-debug": "~2.1.0",
+        "yiisoft/yii2-gii": "~2.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "iguazoft\\ui\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "iguazoft\\ui\\tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "bootstrap": "iguazoft\\ui\\Bootstrap",
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

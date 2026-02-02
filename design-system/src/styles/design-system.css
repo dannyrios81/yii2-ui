@@ -1,0 +1,210 @@
+/**
+ * Design System Styles
+ * Based on Bootstrap 5 with custom variables
+ */
+
+:root {
+  /* Primary Colors */
+  --ds-primary: #6366F1;
+  --ds-primary-hover: #4F46E5;
+  --ds-secondary: #6B7280;
+  --ds-success: #10B981;
+  --ds-danger: #EF4444;
+  --ds-warning: #F59E0B;
+  --ds-info: #3B82F6;
+  
+  /* Grays */
+  --ds-gray-50: #F9FAFB;
+  --ds-gray-100: #F3F4F6;
+  --ds-gray-200: #E5E7EB;
+  --ds-gray-300: #D1D5DB;
+  --ds-gray-400: #9CA3AF;
+  --ds-gray-500: #6B7280;
+  --ds-gray-600: #4B5563;
+  --ds-gray-700: #374151;
+  --ds-gray-800: #1F2937;
+  --ds-gray-900: #111827;
+  
+  /* Typography */
+  --ds-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ds-font-size-xs: 0.75rem;
+  --ds-font-size-sm: 0.875rem;
+  --ds-font-size-base: 1rem;
+  --ds-font-size-lg: 1.125rem;
+  --ds-font-size-xl: 1.25rem;
+  --ds-font-size-2xl: 1.5rem;
+  --ds-font-size-3xl: 1.875rem;
+  --ds-font-size-4xl: 2.25rem;
+  
+  /* Spacing */
+  --ds-spacing-1: 0.25rem;
+  --ds-spacing-2: 0.5rem;
+  --ds-spacing-3: 0.75rem;
+  --ds-spacing-4: 1rem;
+  --ds-spacing-5: 1.25rem;
+  --ds-spacing-6: 1.5rem;
+  --ds-spacing-8: 2rem;
+  --ds-spacing-10: 2.5rem;
+  --ds-spacing-12: 3rem;
+  
+  /* Border Radius */
+  --ds-radius-sm: 0.25rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 0.75rem;
+  --ds-radius-xl: 1rem;
+  --ds-radius-full: 9999px;
+  
+  /* Shadows */
+  --ds-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --ds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --ds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+body {
+  font-family: var(--ds-font-family);
+  color: var(--ds-gray-900);
+  background-color: var(--ds-gray-50);
+}
+
+/* Metric Card Styles */
+.metric-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ds-shadow-lg);
+}
+
+.metric-value {
+  font-size: var(--ds-font-size-4xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ds-gray-900);
+}
+
+.metric-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ds-radius-lg);
+  font-size: var(--ds-font-size-2xl);
+}
+
+.metric-tags .badge {
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--ds-font-size-xs);
+}
+
+.metric-chart {
+  position: relative;
+}
+
+.metric-trend {
+  font-size: var(--ds-font-size-sm);
+  font-weight: 600;
+}
+
+/* Table Styles */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: var(--ds-gray-900);
+  --bs-table-striped-bg: var(--ds-gray-50);
+  --bs-table-active-color: var(--ds-gray-900);
+  --bs-table-active-bg: rgba(99, 102, 241, 0.05);
+  --bs-table-hover-color: var(--ds-gray-900);
+  --bs-table-hover-bg: var(--ds-gray-50);
+}
+
+.table thead th {
+  font-size: var(--ds-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  border-bottom: 2px solid var(--ds-gray-200);
+  background-color: var(--ds-gray-50);
+}
+
+.table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+  font-size: var(--ds-font-size-sm);
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+}
+
+/* Button Overrides */
+.btn {
+  font-weight: 500;
+  transition: all 0.2s;
+  border-radius: var(--ds-radius-md);
+}
+
+.btn-primary {
+  background-color: var(--ds-primary);
+  border-color: var(--ds-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--ds-primary-hover);
+  border-color: var(--ds-primary-hover);
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+  border-color: var(--ds-gray-200);
+  border-radius: var(--ds-radius-md);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--ds-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid var(--ds-gray-200);
+  border-radius: var(--ds-radius-lg);
+}
+
+/* Utilities */
+.bg-opacity-10 {
+  --bs-bg-opacity: 0.1;
+}
+
+.text-primary {
+  color: var(--ds-primary) !important;
+}
+
+.text-success {
+  color: var(--ds-success) !important;
+}
+
+.text-danger {
+  color: var(--ds-danger) !important;
+}
+
+.text-warning {
+  color: var(--ds-warning) !important;
+}
+
+.text-info {
+  color: var(--ds-info) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .metric-value {
+    font-size: var(--ds-font-size-3xl);
+  }
+}

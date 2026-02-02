@@ -1,0 +1,42 @@
+{
+  "name": "@dannyrios/dashboard-design-system",
+  "version": "1.0.0",
+  "description": "Design System for Dashboard UI based on Bootstrap 5 and Atomic Design",
+  "main": "dist/index.js",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "validate": "npm run lint && npm run test",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "design-system",
+    "storybook",
+    "bootstrap",
+    "atomic-design",
+    "dashboard"
+  ],
+  "author": "Danny Rios",
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.0",
+    "@storybook/addon-interactions": "^7.6.0",
+    "@storybook/addon-links": "^7.6.0",
+    "@storybook/blocks": "^7.6.0",
+    "@storybook/html": "^7.6.0",
+    "@storybook/testing-library": "^0.2.2",
+    "storybook": "^7.6.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "chart.js": "^4.4.1",
+    "@popperjs/core": "^2.11.8"
+  }
+}
