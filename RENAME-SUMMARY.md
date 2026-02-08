@@ -1,5 +1,7 @@
 # Resumen de Renombramiento del Paquete
 
+> **Note:** This is a historical document recording the package rename. It is not required for package usage.
+
 ## Cambios Realizados
 
 El paquete ha sido renombrado de `dannyrios/yii2-dashboard-ui` a `iguazoft/yii2-ui`.

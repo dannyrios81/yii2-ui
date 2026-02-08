@@ -4,22 +4,35 @@ namespace iguazoft\ui\widgets;
 
 use yii\helpers\Html;
 
+/**
+ * StatCard renders a statistics card with icon, value, description, and trend indicator.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class StatCard extends BaseWidget
 {
+    /** @var string|null icon content (HTML or emoji) */
     public $icon;
-    
+
+    /** @var string Bootstrap color for the icon background (primary, success, danger, etc.) */
     public $iconBg = 'primary';
-    
+
+    /** @var string the stat title/label */
     public $title;
-    
+
+    /** @var string|int the main statistic value */
     public $value;
-    
+
+    /** @var string|null additional description text */
     public $description = null;
-    
+
+    /** @var string|null trend direction (up, down) */
     public $trend = null;
-    
+
+    /** @var string|null trend percentage or value text */
     public $trendValue = null;
-    
+
+    /** @var string trend type affecting color (success, danger) */
     public $trendType = 'success';
     
     public function init()

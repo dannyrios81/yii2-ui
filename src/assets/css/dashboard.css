@@ -364,30 +364,6 @@ body {
     color: #fff;
 }
 
-@media (max-width: 768px) {
-    .sidebar {
-        position: fixed;
-        left: -280px;
-        transition: left 0.3s;
-    }
-    
-    .sidebar.show {
-        left: 0;
-    }
-    
-    .dashboard-main {
-        margin-left: 0 !important;
-    }
-    
-    .dashboard-content {
-        padding: 1rem;
-    }
-    
-    .metric-value {
-        font-size: 1.75rem;
-    }
-}
-
 /* Timeline Styles */
 .timeline {
     position: relative;

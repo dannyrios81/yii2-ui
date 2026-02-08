@@ -4,18 +4,29 @@ namespace iguazoft\ui\widgets;
 
 use yii\helpers\Html;
 
+/**
+ * ReportCard renders a report-style card with title, description, action buttons, and tab navigation.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class ReportCard extends BaseWidget
 {
+    /** @var string the report card title */
     public $title;
-    
+
+    /** @var string|null description text below the title */
     public $description;
-    
+
+    /** @var array|null primary action button config with keys: label, url, icon, options */
     public $primaryButton = null;
-    
+
+    /** @var array|null secondary action button config with keys: label, url, options */
     public $secondaryButton = null;
-    
+
+    /** @var array list of tab label strings */
     public $tabs = [];
-    
+
+    /** @var int zero-indexed active tab */
     public $activeTab = 0;
     
     public function init()

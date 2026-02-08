@@ -5,22 +5,35 @@ namespace iguazoft\ui\widgets;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+/**
+ * Sidebar renders a dashboard sidebar with user profile, search, and multi-section navigation.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Sidebar extends BaseWidget
 {
+    /** @var array user profile data with keys: name, role, avatar */
     public $user = [];
-    
+
+    /** @var array main navigation menu items. Each item: [label, icon, url, active] */
     public $mainMenu = [];
-    
+
+    /** @var array account section menu items */
     public $accountMenu = [];
-    
+
+    /** @var array other/misc section menu items */
     public $otherMenu = [];
-    
+
+    /** @var bool whether to show the search input */
     public $searchEnabled = true;
-    
+
+    /** @var string placeholder text for the search input */
     public $searchPlaceholder = 'Search';
-    
+
+    /** @var string|null URL of the brand logo image */
     public $brandLogo = null;
-    
+
+    /** @var string URL the brand logo links to */
     public $brandUrl = '/';
     
     public function init()

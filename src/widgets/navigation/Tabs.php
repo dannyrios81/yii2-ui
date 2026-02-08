@@ -5,22 +5,35 @@ namespace iguazoft\ui\widgets\navigation;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Tabs renders a Bootstrap 5 tab/pill navigation with content panes.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Tabs extends BaseWidget
 {
+    /** @var array tab items. Each item: [label, content, disabled] */
     public $items = [];
-    
+
+    /** @var int zero-indexed active tab */
     public $activeTab = 0;
-    
+
+    /** @var bool whether to render as pills instead of tabs */
     public $pills = false;
-    
+
+    /** @var bool whether to render tabs vertically */
     public $vertical = false;
-    
+
+    /** @var bool whether tabs should be justified (equal width) */
     public $justified = false;
-    
+
+    /** @var bool whether tabs should fill available width */
     public $fill = false;
-    
+
+    /** @var array HTML attributes for the nav element */
     public $navOptions = [];
-    
+
+    /** @var array HTML attributes for the tab content container */
     public $contentOptions = [];
     
     public function init()

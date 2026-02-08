@@ -4,30 +4,43 @@ namespace iguazoft\ui\widgets;
 
 use yii\helpers\Html;
 
+/**
+ * Card renders a Bootstrap 5 card component with header, body, and footer sections.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Card extends BaseWidget
 {
+    /** @var string|null card title displayed in the header */
     public $title;
-    
+
+    /** @var string|null card subtitle displayed below the title */
     public $subtitle;
-    
+
+    /** @var string|null card body content. If null, captured output buffer is used. */
     public $content;
-    
+
+    /** @var string|null card footer content */
     public $footer;
-    
+
+    /** @var array HTML attributes for the card header */
     public $headerOptions = [];
-    
+
+    /** @var array HTML attributes for the card body */
     public $bodyOptions = [];
-    
+
+    /** @var array HTML attributes for the card footer */
     public $footerOptions = [];
-    
+
+    /** @var bool whether to apply shadow styling */
     public $shadow = true;
-    
+
+    /** @var bool whether to apply rounded corners */
     public $rounded = true;
     
     public function init()
     {
         parent::init();
-        $this->initDefaultOptions();
         
         Html::addCssClass($this->options, 'card');
         

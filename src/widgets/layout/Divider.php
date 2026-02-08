@@ -5,12 +5,20 @@ namespace iguazoft\ui\widgets\layout;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Divider renders a horizontal or vertical divider line, optionally with centered text.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Divider extends BaseWidget
 {
+    /** @var string|null optional text displayed in the middle of a horizontal divider */
     public $text;
-    
+
+    /** @var string divider orientation (horizontal, vertical) */
     public $type = 'horizontal';
-    
+
+    /** @var int Bootstrap margin spacing (0-5) */
     public $margin = 3;
     
     public function init()

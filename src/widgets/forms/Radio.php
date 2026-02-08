@@ -5,30 +5,47 @@ namespace iguazoft\ui\widgets\forms;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Radio renders a group of Bootstrap 5 styled radio buttons.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Radio extends BaseWidget
 {
+    /** @var \yii\base\Model|null Yii2 model instance */
     public $model;
-    
+
+    /** @var string|null model attribute name */
     public $attribute;
-    
+
+    /** @var string|null input name attribute */
     public $name;
-    
+
+    /** @var mixed currently selected value */
     public $value;
-    
+
+    /** @var array key-value pairs for the radio options */
     public $items = [];
-    
+
+    /** @var string|null group label text */
     public $label;
-    
+
+    /** @var string|null hint text */
     public $hint;
-    
+
+    /** @var string|null error message */
     public $error;
-    
+
+    /** @var bool whether the radios are disabled */
     public $disabled = false;
-    
+
+    /** @var bool whether to display radios inline */
     public $inline = false;
-    
+
+    /** @var array HTML attributes for the label */
     public $labelOptions = [];
-    
+
+    /** @var array HTML attributes for the container */
     public $containerOptions = [];
     
     public function init()

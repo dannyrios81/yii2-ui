@@ -5,38 +5,59 @@ namespace iguazoft\ui\widgets\forms;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * FileUpload renders a styled file input with optional preview, size limit display, and multiple file support.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class FileUpload extends BaseWidget
 {
+    /** @var \yii\base\Model|null Yii2 model instance */
     public $model;
-    
+
+    /** @var string|null model attribute name */
     public $attribute;
-    
+
+    /** @var string|null input name attribute */
     public $name;
-    
+
+    /** @var string|null label text */
     public $label;
-    
+
+    /** @var string|null hint text */
     public $hint;
-    
+
+    /** @var string|null error message */
     public $error;
-    
+
+    /** @var bool whether the field is required */
     public $required = false;
-    
+
+    /** @var bool whether the field is disabled */
     public $disabled = false;
-    
+
+    /** @var bool whether multiple files can be selected */
     public $multiple = false;
-    
+
+    /** @var string|null accepted file types (e.g. 'image/*', '.pdf,.doc') */
     public $accept;
-    
+
+    /** @var int|null maximum file size in bytes */
     public $maxSize;
-    
+
+    /** @var bool whether to show a preview of the current file */
     public $preview = false;
-    
+
+    /** @var string|null URL of the current file preview image */
     public $previewUrl;
-    
+
+    /** @var array HTML attributes for the label */
     public $labelOptions = [];
-    
+
+    /** @var array HTML attributes for the file input */
     public $inputOptions = [];
-    
+
+    /** @var array HTML attributes for the container */
     public $containerOptions = [];
     
     public function init()

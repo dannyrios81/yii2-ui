@@ -5,20 +5,32 @@ namespace iguazoft\ui\widgets\data;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * ListView renders a list of items using a custom item view callback or template.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class ListView extends BaseWidget
 {
+    /** @var array the data items to display */
     public $dataProvider;
-    
+
+    /** @var callable|string item rendering callback receiving ($model, $index, $widget) */
     public $itemView;
-    
+
+    /** @var array HTML attributes for each item wrapper */
     public $itemOptions = [];
-    
+
+    /** @var string text displayed when dataProvider is empty */
     public $emptyText = 'No items found';
-    
+
+    /** @var string HTML separator between items */
     public $separator = '';
-    
+
+    /** @var string layout template. {items} is replaced with rendered items. */
     public $layout = '{items}';
-    
+
+    /** @var array additional parameters passed to the item view */
     public $viewParams = [];
     
     public function init()

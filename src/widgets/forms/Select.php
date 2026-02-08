@@ -5,38 +5,59 @@ namespace iguazoft\ui\widgets\forms;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Select renders a styled dropdown select field with label, hint, and error support.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Select extends BaseWidget
 {
+    /** @var \yii\base\Model|null Yii2 model instance */
     public $model;
-    
+
+    /** @var string|null model attribute name */
     public $attribute;
-    
+
+    /** @var string|null select name attribute */
     public $name;
-    
+
+    /** @var mixed selected value */
     public $value;
-    
+
+    /** @var array key-value pairs for the select options */
     public $items = [];
-    
+
+    /** @var string|null label text */
     public $label;
-    
+
+    /** @var string|null prompt/placeholder option text */
     public $prompt;
-    
+
+    /** @var string|null hint text displayed below the select */
     public $hint;
-    
+
+    /** @var string|null error message */
     public $error;
-    
+
+    /** @var bool whether the field is required */
     public $required = false;
-    
+
+    /** @var bool whether the field is disabled */
     public $disabled = false;
-    
+
+    /** @var bool whether multiple selection is allowed */
     public $multiple = false;
-    
+
+    /** @var string select size (sm, md, lg) */
     public $size = 'md';
-    
+
+    /** @var array HTML attributes for the label tag */
     public $labelOptions = [];
-    
+
+    /** @var array HTML attributes for the select tag */
     public $selectOptions = [];
-    
+
+    /** @var array HTML attributes for the container div */
     public $containerOptions = [];
     
     public function init()

@@ -19,7 +19,7 @@
         "charts",
         "iguazoft"
     ],
-    "homepage": "https://github.com/iguazoft/yii2-ui",
+    "homepage": "https://github.com/dannyrios81/yii2-ui",
     "license": "MIT",
     "authors": [
         {
@@ -29,9 +29,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/iguazoft/yii2-ui/issues",
-        "source": "https://github.com/iguazoft/yii2-ui",
-        "docs": "https://github.com/iguazoft/yii2-ui/blob/main/README.md"
+        "issues": "https://github.com/dannyrios81/yii2-ui/issues",
+        "source": "https://github.com/dannyrios81/yii2-ui",
+        "docs": "https://github.com/dannyrios81/yii2-ui/blob/main/README.md"
     },
     "require": {
         "php": ">=7.4.0",

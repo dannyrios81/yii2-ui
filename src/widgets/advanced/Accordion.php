@@ -5,14 +5,23 @@ namespace iguazoft\ui\widgets\advanced;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Accordion renders a Bootstrap 5 accordion with collapsible panels.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Accordion extends BaseWidget
 {
+    /** @var array accordion items. Each item: [title, content] */
     public $items = [];
-    
+
+    /** @var bool whether to use flush style (no outer borders/rounded corners) */
     public $flush = false;
-    
+
+    /** @var bool whether multiple items can be open simultaneously */
     public $alwaysOpen = false;
-    
+
+    /** @var array zero-indexed list of initially expanded item indices */
     public $activeItems = [];
     
     public function init()

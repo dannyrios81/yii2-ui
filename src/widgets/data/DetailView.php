@@ -6,20 +6,32 @@ use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
+/**
+ * DetailView renders a two-column detail table for displaying a single model's attributes.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class DetailView extends BaseWidget
 {
+    /** @var array|object the data model whose attributes are displayed */
     public $model;
-    
+
+    /** @var array attribute definitions. Each element: [attribute, label, format, value] */
     public $attributes = [];
-    
+
+    /** @var bool whether to apply striped row styling */
     public $striped = true;
-    
+
+    /** @var bool whether to apply table borders */
     public $bordered = true;
-    
+
+    /** @var bool whether to apply hover effect on rows */
     public $hover = false;
-    
+
+    /** @var string CSS width of the label column */
     public $labelWidth = '30%';
-    
+
+    /** @var array HTML attributes for the <table> tag */
     public $tableOptions = [];
     
     public function init()

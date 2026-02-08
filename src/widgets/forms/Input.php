@@ -5,42 +5,65 @@ namespace iguazoft\ui\widgets\forms;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Input renders a styled form input field with label, hint, error, and input group support.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Input extends BaseWidget
 {
+    /** @var \yii\base\Model|null Yii2 model instance for automatic name/value/label/error binding */
     public $model;
-    
+
+    /** @var string|null model attribute name */
     public $attribute;
-    
+
+    /** @var string|null input name attribute */
     public $name;
-    
+
+    /** @var mixed input value */
     public $value;
-    
+
+    /** @var string HTML input type (text, email, password, number, date, etc.) */
     public $type = 'text';
-    
+
+    /** @var string|null label text */
     public $label;
-    
+
+    /** @var string|null placeholder text */
     public $placeholder;
-    
+
+    /** @var string|null hint text displayed below the input */
     public $hint;
-    
+
+    /** @var string|null error message */
     public $error;
-    
+
+    /** @var bool whether the field is required */
     public $required = false;
-    
+
+    /** @var bool whether the field is disabled */
     public $disabled = false;
-    
+
+    /** @var bool whether the field is readonly */
     public $readonly = false;
-    
+
+    /** @var string input size (sm, md, lg) */
     public $size = 'md';
-    
+
+    /** @var string|null prepend content for input group */
     public $prepend = null;
-    
+
+    /** @var string|null append content for input group */
     public $append = null;
-    
+
+    /** @var array HTML attributes for the label tag */
     public $labelOptions = [];
-    
+
+    /** @var array HTML attributes for the input tag */
     public $inputOptions = [];
-    
+
+    /** @var array HTML attributes for the container div */
     public $containerOptions = [];
     
     public function init()

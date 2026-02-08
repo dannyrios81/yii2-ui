@@ -1,6 +1,7 @@
 # Composer Scripts
 
-Scripts útiles para desarrollo y testing del paquete.
+> **Note:** This content has been consolidated into [CONTRIBUTING.md](CONTRIBUTING.md#composer-scripts).
+> This file is kept for backward compatibility.
 
 ## Configuración en composer.json
 

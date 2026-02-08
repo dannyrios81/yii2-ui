@@ -5,12 +5,20 @@ namespace iguazoft\ui\widgets\advanced;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Timeline renders a vertical timeline with icons, titles, content, and timestamps.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Timeline extends BaseWidget
 {
+    /** @var array timeline items. Each item: [title, content, time, icon, color] */
     public $items = [];
-    
+
+    /** @var string timeline alignment (left, center) */
     public $align = 'left';
-    
+
+    /** @var string icon shape type (circle) */
     public $iconType = 'circle';
     
     public function init()

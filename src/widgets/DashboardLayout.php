@@ -4,20 +4,32 @@ namespace iguazoft\ui\widgets;
 
 use yii\helpers\Html;
 
+/**
+ * DashboardLayout renders a full dashboard page layout with sidebar, header, content area, and footer.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class DashboardLayout extends BaseWidget
 {
+    /** @var string|null rendered sidebar HTML content */
     public $sidebar = null;
-    
+
+    /** @var string|null rendered header HTML content */
     public $header = null;
-    
+
+    /** @var string|null main content area. If null, captured output buffer is used. */
     public $content = null;
-    
+
+    /** @var string|null rendered footer HTML content */
     public $footer = null;
-    
+
+    /** @var string CSS width of the sidebar */
     public $sidebarWidth = '280px';
-    
+
+    /** @var string CSS height of the header */
     public $headerHeight = '70px';
-    
+
+    /** @var bool whether to use container-fluid (true) or container (false) for content */
     public $containerFluid = true;
     
     public function init()

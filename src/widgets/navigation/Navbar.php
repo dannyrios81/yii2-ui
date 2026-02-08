@@ -5,26 +5,41 @@ namespace iguazoft\ui\widgets\navigation;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Navbar renders a Bootstrap 5 responsive navigation bar with brand, items, and dropdowns.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Navbar extends BaseWidget
 {
+    /** @var string|null brand text */
     public $brand;
-    
+
+    /** @var string brand link URL */
     public $brandUrl = '/';
-    
+
+    /** @var string|null brand logo image URL */
     public $brandImage;
-    
+
+    /** @var array left-aligned nav items. Each item: [label, url, active, items (for dropdown)] */
     public $items = [];
-    
+
+    /** @var array right-aligned nav items */
     public $rightItems = [];
-    
+
+    /** @var string color theme (light, dark) */
     public $theme = 'light';
-    
+
+    /** @var string responsive expand breakpoint (sm, md, lg, xl, xxl) */
     public $expand = 'lg';
-    
+
+    /** @var string|null fixed position (top, bottom, or null) */
     public $fixed = null;
-    
+
+    /** @var bool whether to use sticky positioning */
     public $sticky = false;
-    
+
+    /** @var bool whether to use container-fluid (true) or container (false) */
     public $containerFluid = true;
     
     public function init()

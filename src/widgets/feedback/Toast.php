@@ -5,26 +5,41 @@ namespace iguazoft\ui\widgets\feedback;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Toast renders a Bootstrap 5 toast notification with header, body, and auto-hide support.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Toast extends BaseWidget
 {
+    /** @var string|null toast title */
     public $title;
-    
+
+    /** @var string toast body message */
     public $message;
-    
+
+    /** @var string toast type affecting header color (info, success, warning, danger) */
     public $type = 'info';
-    
+
+    /** @var string|null icon content */
     public $icon;
-    
+
+    /** @var string|null timestamp text displayed in the header */
     public $time;
-    
+
+    /** @var bool whether the toast auto-hides after delay */
     public $autohide = true;
-    
+
+    /** @var int auto-hide delay in milliseconds */
     public $delay = 5000;
-    
+
+    /** @var bool whether to show a close button */
     public $closeButton = true;
-    
+
+    /** @var array HTML attributes for the toast header */
     public $headerOptions = [];
-    
+
+    /** @var array HTML attributes for the toast body */
     public $bodyOptions = [];
     
     public function init()

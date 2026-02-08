@@ -13,3 +13,20 @@ require_once(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 Yii::setAlias('@iguazoft/ui', __DIR__ . '/../src');
 Yii::setAlias('@tests', __DIR__);
+
+new \yii\web\Application([
+    'id' => 'test-app',
+    'basePath' => __DIR__,
+    'vendorPath' => dirname(__DIR__) . '/vendor',
+    'components' => [
+        'request' => [
+            'cookieValidationKey' => 'test-key',
+            'scriptFile' => __FILE__,
+            'scriptUrl' => '/',
+        ],
+        'assetManager' => [
+            'basePath' => sys_get_temp_dir(),
+            'baseUrl' => '/',
+        ],
+    ],
+]);

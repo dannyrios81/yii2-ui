@@ -5,34 +5,53 @@ namespace iguazoft\ui\widgets\forms;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Form renders a styled HTML form with optional title, description, and action buttons.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Form extends BaseWidget
 {
+    /** @var string|null form action URL */
     public $action;
-    
+
+    /** @var string HTTP method (post, get) */
     public $method = 'post';
-    
+
+    /** @var string|null form encoding type (e.g. multipart/form-data) */
     public $enctype;
-    
+
+    /** @var string|null form title displayed above fields */
     public $title;
-    
+
+    /** @var string|null description text below the title */
     public $description;
-    
+
+    /** @var bool whether to show a submit button */
     public $submitButton = true;
-    
+
+    /** @var string submit button label */
     public $submitLabel = 'Submit';
-    
+
+    /** @var bool whether to show a reset button */
     public $resetButton = false;
-    
+
+    /** @var string reset button label */
     public $resetLabel = 'Reset';
-    
+
+    /** @var bool whether to show a cancel button */
     public $cancelButton = false;
-    
+
+    /** @var string cancel button label */
     public $cancelLabel = 'Cancel';
-    
+
+    /** @var string|null URL for the cancel button link */
     public $cancelUrl;
-    
+
+    /** @var bool whether to render the form inline */
     public $inline = false;
-    
+
+    /** @var bool whether to enable HTML5 validation (adds needs-validation class) */
     public $validated = false;
     
     public function init()

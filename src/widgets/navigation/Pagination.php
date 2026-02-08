@@ -5,30 +5,47 @@ namespace iguazoft\ui\widgets\navigation;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Pagination renders a Bootstrap 5 pagination component with configurable buttons and navigation.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Pagination extends BaseWidget
 {
+    /** @var int total number of pages */
     public $totalPages = 1;
-    
+
+    /** @var int current active page (1-indexed) */
     public $currentPage = 1;
-    
+
+    /** @var int maximum number of page buttons to show */
     public $maxButtons = 7;
-    
+
+    /** @var string pagination size (sm, md, lg) */
     public $size = 'md';
-    
+
+    /** @var string alignment (start, center, end) */
     public $alignment = 'start';
-    
+
+    /** @var string previous button label */
     public $prevLabel = 'Previous';
-    
+
+    /** @var string next button label */
     public $nextLabel = 'Next';
-    
+
+    /** @var string first page button label */
     public $firstLabel = 'First';
-    
+
+    /** @var string last page button label */
     public $lastLabel = 'Last';
-    
+
+    /** @var bool whether to show first/last page buttons */
     public $showFirstLast = false;
-    
+
+    /** @var bool whether to show previous/next buttons */
     public $showPrevNext = true;
-    
+
+    /** @var string URL template where {page} is replaced with page number */
     public $urlTemplate = '?page={page}';
     
     public function init()

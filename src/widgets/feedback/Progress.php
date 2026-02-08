@@ -5,24 +5,38 @@ namespace iguazoft\ui\widgets\feedback;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Progress renders a Bootstrap 5 progress bar with optional label, striped, and animated styles.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Progress extends BaseWidget
 {
+    /** @var int|float current progress value */
     public $value = 0;
-    
+
+    /** @var int maximum progress value */
     public $max = 100;
-    
+
+    /** @var string|null custom label text (defaults to percentage if showLabel is true) */
     public $label;
-    
+
+    /** @var bool whether to display the label inside the progress bar */
     public $showLabel = false;
-    
+
+    /** @var string Bootstrap color type (primary, success, danger, warning, info) */
     public $type = 'primary';
-    
+
+    /** @var bool whether to apply striped style */
     public $striped = false;
-    
+
+    /** @var bool whether to animate the stripes */
     public $animated = false;
-    
+
+    /** @var string|null custom CSS height (e.g. '20px') */
     public $height;
-    
+
+    /** @var array HTML attributes for the inner progress bar div */
     public $barOptions = [];
     
     public function init()

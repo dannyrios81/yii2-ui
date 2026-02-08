@@ -5,24 +5,38 @@ namespace iguazoft\ui\widgets\advanced;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Dropdown renders a Bootstrap 5 dropdown button with menu items.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Dropdown extends BaseWidget
 {
+    /** @var string the dropdown button label */
     public $label = 'Dropdown';
-    
+
+    /** @var array dropdown menu items. Each item is an array with keys: label, url, active, disabled. Use '-' for a divider, or ['header' => 'text'] for headers. */
     public $items = [];
-    
+
+    /** @var string Bootstrap button type (primary, secondary, success, danger, etc.) */
     public $buttonType = 'primary';
-    
+
+    /** @var string button size (sm, md, lg) */
     public $buttonSize = 'md';
-    
+
+    /** @var bool whether to render a split dropdown button */
     public $split = false;
-    
+
+    /** @var string dropdown direction (down, up, start, end) */
     public $direction = 'down';
-    
+
+    /** @var string menu alignment (start, end) */
     public $align = 'start';
-    
+
+    /** @var array HTML attributes for the button element */
     public $buttonOptions = [];
-    
+
+    /** @var array HTML attributes for the dropdown menu <ul> */
     public $menuOptions = [];
     
     public function init()
@@ -55,15 +69,16 @@ class Dropdown extends BaseWidget
             $parts[] = Html::button($this->label, array_merge($this->buttonOptions, [
                 'type' => 'button'
             ]));
-            
+
+            $splitOptions = $this->buttonOptions;
+            Html::addCssClass($splitOptions, ['dropdown-toggle', 'dropdown-toggle-split']);
+            $splitOptions['type'] = 'button';
+            $splitOptions['data-bs-toggle'] = 'dropdown';
+            $splitOptions['aria-expanded'] = 'false';
+
             $parts[] = Html::button(
                 '<span class="visually-hidden">Toggle Dropdown</span>',
-                array_merge($this->buttonOptions, [
-                    'type' => 'button',
-                    'class' => implode(' ', $this->buttonOptions['class']) . ' dropdown-toggle dropdown-toggle-split',
-                    'data-bs-toggle' => 'dropdown',
-                    'aria-expanded' => 'false'
-                ])
+                $splitOptions
             );
         } else {
             Html::addCssClass($this->buttonOptions, 'dropdown-toggle');

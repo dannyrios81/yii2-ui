@@ -52,18 +52,20 @@ $this->title = 'Dashboard';
 
 <div class="row g-4 mb-4">
     <div class="col-md-4">
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 20px; height: 200px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px;">
-                <div style="color: white; opacity: 0.9; font-size: 14px; margin-bottom: 8px;">December income</div>
-                <div style="color: white; font-size: 36px; font-weight: bold; margin-bottom: 12px;">$287,000</div>
-                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
-                    <span style="background: rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px;"># Macbook m2</span>
-                    <span style="background: rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px;"># iPhone 15</span>
-                </div>
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: rgba(255,255,255,0.1); border-radius: 8px;"></div>
-                <div style="position: absolute; bottom: 10px; left: 10px; color: white; font-size: 12px; font-weight: bold;">↗ 18.24%</div>
-            </div>
-        </div>
+        <?= MetricCard::widget([
+            'title' => 'December income',
+            'value' => '287,000',
+            'prefix' => '$',
+            'tags' => ['Macbook m2', 'iPhone 15'],
+            'trend' => 'up',
+            'trendValue' => '18.24%',
+            'trendType' => 'success',
+            'icon' => '💰',
+            'options' => [
+                'style' => 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;',
+                'class' => 'border-0',
+            ],
+        ]) ?>
     </div>
     
     <div class="col-md-4">

@@ -5,40 +5,62 @@ namespace iguazoft\ui\widgets\forms;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Textarea renders a styled multi-line text input with label, hint, error, and character counter support.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Textarea extends BaseWidget
 {
+    /** @var \yii\base\Model|null Yii2 model instance */
     public $model;
-    
+
+    /** @var string|null model attribute name */
     public $attribute;
-    
+
+    /** @var string|null textarea name attribute */
     public $name;
-    
+
+    /** @var string|null textarea value */
     public $value;
-    
+
+    /** @var string|null label text */
     public $label;
-    
+
+    /** @var string|null placeholder text */
     public $placeholder;
-    
+
+    /** @var string|null hint text */
     public $hint;
-    
+
+    /** @var string|null error message */
     public $error;
-    
+
+    /** @var bool whether the field is required */
     public $required = false;
-    
+
+    /** @var bool whether the field is disabled */
     public $disabled = false;
-    
+
+    /** @var bool whether the field is readonly */
     public $readonly = false;
-    
+
+    /** @var int number of visible text rows */
     public $rows = 3;
-    
+
+    /** @var int|null maximum character length */
     public $maxlength;
-    
+
+    /** @var bool whether to show a character counter (requires maxlength) */
     public $showCounter = false;
-    
+
+    /** @var array HTML attributes for the label */
     public $labelOptions = [];
-    
+
+    /** @var array HTML attributes for the textarea */
     public $textareaOptions = [];
-    
+
+    /** @var array HTML attributes for the container */
     public $containerOptions = [];
     
     public function init()

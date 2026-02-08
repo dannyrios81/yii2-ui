@@ -5,20 +5,32 @@ namespace iguazoft\ui\widgets\advanced;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Carousel renders a Bootstrap 5 image/content carousel with controls and indicators.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Carousel extends BaseWidget
 {
+    /** @var array carousel items. Each item: [image, caption, title, content, active] */
     public $items = [];
-    
+
+    /** @var bool whether to show previous/next arrow controls */
     public $controls = true;
-    
+
+    /** @var bool whether to show slide indicator dots */
     public $indicators = true;
-    
+
+    /** @var bool whether to use crossfade animation instead of slide */
     public $fade = false;
-    
+
+    /** @var bool whether the carousel auto-cycles */
     public $autoplay = true;
-    
+
+    /** @var int auto-cycle interval in milliseconds */
     public $interval = 5000;
-    
+
+    /** @var string|bool pause behavior on hover ('hover', false) */
     public $pause = 'hover';
     
     public function init()

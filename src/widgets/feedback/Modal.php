@@ -5,34 +5,53 @@ namespace iguazoft\ui\widgets\feedback;
 use iguazoft\ui\widgets\BaseWidget;
 use yii\helpers\Html;
 
+/**
+ * Modal renders a Bootstrap 5 modal dialog with header, body, and footer.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class Modal extends BaseWidget
 {
+    /** @var string|null modal title */
     public $title;
-    
+
+    /** @var string|null modal body content. If null, captured output buffer is used. */
     public $content;
-    
+
+    /** @var string|null modal footer content */
     public $footer;
-    
+
+    /** @var string modal size (sm, md, lg, xl) */
     public $size = 'md';
-    
+
+    /** @var bool whether to vertically center the modal */
     public $centered = false;
-    
+
+    /** @var bool whether to make the modal body scrollable */
     public $scrollable = false;
-    
+
+    /** @var bool whether to make the modal fullscreen */
     public $fullscreen = false;
-    
+
+    /** @var bool whether to show a close button in the header */
     public $closeButton = true;
-    
+
+    /** @var bool whether clicking the backdrop closes the modal */
     public $backdrop = true;
-    
+
+    /** @var bool whether pressing Escape closes the modal */
     public $keyboard = true;
-    
+
+    /** @var array HTML attributes for the modal header */
     public $headerOptions = [];
-    
+
+    /** @var array HTML attributes for the modal body */
     public $bodyOptions = [];
-    
+
+    /** @var array HTML attributes for the modal footer */
     public $footerOptions = [];
-    
+
+    /** @var array HTML attributes for the modal dialog div */
     public $dialogOptions = [];
     
     public function init()

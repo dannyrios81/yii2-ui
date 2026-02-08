@@ -4,28 +4,44 @@ namespace iguazoft\ui\widgets;
 
 use yii\helpers\Html;
 
+/**
+ * MetricCard renders a dashboard metric card with value, trend indicator, tags, and optional chart.
+ *
+ * @author Iguazoft <info@iguazoft.com>
+ */
 class MetricCard extends BaseWidget
 {
+    /** @var string the metric title/label */
     public $title;
-    
+
+    /** @var string|int the main metric value */
     public $value;
-    
+
+    /** @var string prefix displayed before the value (e.g. '$') */
     public $prefix = '';
-    
+
+    /** @var string suffix displayed after the value (e.g. 'K') */
     public $suffix = '';
-    
+
+    /** @var array list of tag strings displayed as badges */
     public $tags = [];
-    
+
+    /** @var string|null HTML content for an inline chart area */
     public $chart = null;
-    
+
+    /** @var string|null trend direction indicator (up, down) */
     public $trend = null;
-    
+
+    /** @var string|null trend percentage or value text */
     public $trendValue = null;
-    
+
+    /** @var string trend type affecting color (success, danger) */
     public $trendType = 'success';
-    
+
+    /** @var string|null icon content (HTML or emoji) */
     public $icon = null;
-    
+
+    /** @var array HTML attributes for the icon container */
     public $iconOptions = [];
     
     public function init()

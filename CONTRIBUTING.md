@@ -45,8 +45,8 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 ```bash
 # Clone the repository
-git clone https://github.com/iguazoft/yii2-ui.git
-cd yii2-dashboard-ui
+git clone https://github.com/dannyrios81/yii2-ui.git
+cd yii2-ui
 
 # Install dependencies
 composer install
@@ -95,7 +95,7 @@ Example widget structure:
 ```php
 <?php
 
-namespace dannyrios\dashboardui\widgets;
+namespace iguazoft\ui\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
@@ -173,6 +173,30 @@ Fixes #123
 3. Create a git tag: `git tag -a v1.0.0 -m "Release v1.0.0"`
 4. Push tag: `git push origin v1.0.0`
 5. Create GitHub release with changelog
+
+## Composer Scripts
+
+Add these scripts to your `composer.json` for development:
+
+```json
+{
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html coverage",
+        "cs-check": "phpcs --standard=PSR12 src/",
+        "cs-fix": "phpcbf --standard=PSR12 src/",
+        "analyze": "phpstan analyse src/ --level=5",
+        "validate": ["@cs-check", "@test"]
+    }
+}
+```
+
+Install dev tools:
+
+```bash
+composer require --dev squizlabs/php_codesniffer
+composer require --dev phpstan/phpstan
+```
 
 ## Questions?
 
