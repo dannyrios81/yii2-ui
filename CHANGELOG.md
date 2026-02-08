@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-02-08
+
+### Fixed
+- Dynamic pagination in ProductTable (replaces hardcoded values)
+- Dropdown split mode class handling bug
+- Duplicate CSS media query in dashboard.css
+- Test bootstrap now creates Yii2 Application instance
+- URLs in composer.json corrected to dannyrios81/yii2-ui
+
+### Added
+- ChartAsset for automatic Chart.js CDN registration
+- Pagination support in DataTable widget
+- PHPDoc documentation for all 40 widget classes
+- 9 new test files: MetricCard, Card, Alert, DataTable, Badge, Sidebar, Pagination, Modal, Progress
+
+### Changed
+- BaseWidget::init() now adds `dashboard-widget` class automatically
+- Inline HTML in example replaced with MetricCard widget
+- README.md rewritten and streamlined
+- Removed 9 redundant documentation files
+
 ## [1.0.0] - 2024-02-01
 
 ### Added
