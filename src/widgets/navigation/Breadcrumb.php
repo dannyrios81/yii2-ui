@@ -52,6 +52,10 @@ class Breadcrumb extends BaseWidget
         }
         
         foreach ($this->items as $item) {
+            if (!is_array($item)) {
+                // Plain strings are accepted, like yii\widgets\Breadcrumbs
+                $item = ['label' => Html::encode($item)];
+            }
             if (isset($item['url'])) {
                 $items[] = str_replace(
                     '{link}',

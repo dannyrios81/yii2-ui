@@ -64,7 +64,7 @@ class DashboardLayout extends BaseWidget
         if ($this->header !== null) {
             $parts[] = Html::tag('div', $this->header, [
                 'class' => 'dashboard-header bg-white border-bottom',
-                'style' => 'height: ' . $this->headerHeight
+                'style' => 'min-height: ' . $this->headerHeight
             ]);
         }
         

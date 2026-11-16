@@ -13,6 +13,8 @@ use yii\helpers\ArrayHelper;
  */
 class DataTable extends BaseWidget
 {
+    use \iguazoft\ui\widgets\DataProviderTrait;
+
     /** @var array|\yii\data\BaseDataProvider the data rows to display */
     public $dataProvider;
 
@@ -98,6 +100,8 @@ class DataTable extends BaseWidget
     
     public function run()
     {
+        $this->resolveDataProvider();
+
         $parts = [];
         
         if ($this->responsive) {
@@ -190,9 +194,8 @@ class DataTable extends BaseWidget
             $value = call_user_func($column['value'], $model, $index);
         }
         
-        if (isset($column['format'])) {
-            $value = $this->formatValue($value, $column['format']);
-        }
+        // Values are HTML-encoded unless the column asks for 'html' or 'raw'
+        $value = $this->formatValue($value, $column['format'] ?? 'text');
         
         $contentOptions = $column['contentOptions'] ?? [];
         
@@ -210,7 +213,8 @@ class DataTable extends BaseWidget
             case 'text':
                 return Html::encode($value);
             case 'html':
-                return $value;
+            case 'raw':
+                return (string) $value;
             case 'date':
                 return date('Y-m-d', strtotime($value));
             case 'datetime':
@@ -222,7 +226,7 @@ class DataTable extends BaseWidget
             case 'currency':
                 return '$' . number_format($value, 2);
             default:
-                return $value;
+                return Html::encode($value);
         }
     }
 

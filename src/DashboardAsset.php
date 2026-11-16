@@ -19,5 +19,6 @@ class DashboardAsset extends AssetBundle
     public $depends = [
         'yii\bootstrap5\BootstrapAsset',
         'yii\bootstrap5\BootstrapPluginAsset',
+        BootstrapIconsAsset::class,
     ];
 }

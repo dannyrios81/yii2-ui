@@ -83,9 +83,8 @@ class DetailView extends BaseWidget
             $value = ArrayHelper::getValue($this->model, $attribute['attribute']);
         }
         
-        if (isset($attribute['format'])) {
-            $value = $this->formatValue($value, $attribute['format']);
-        }
+        // Values are HTML-encoded unless the column asks for 'html' or 'raw'
+        $value = $this->formatValue($value, $attribute['format'] ?? 'text');
         
         $labelOptions = $attribute['labelOptions'] ?? [];
         Html::addCssClass($labelOptions, 'fw-bold');
@@ -105,7 +104,8 @@ class DetailView extends BaseWidget
             case 'text':
                 return Html::encode($value);
             case 'html':
-                return $value;
+            case 'raw':
+                return (string) $value;
             case 'date':
                 return date('Y-m-d', strtotime($value));
             case 'datetime':
@@ -117,7 +117,7 @@ class DetailView extends BaseWidget
             case 'currency':
                 return '$' . number_format($value, 2);
             default:
-                return $value;
+                return Html::encode($value);
         }
     }
 }

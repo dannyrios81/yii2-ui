@@ -24,8 +24,4 @@ class ChartAsset extends AssetBundle
     public $jsOptions = [
         'position' => \yii\web\View::POS_HEAD,
     ];
-
-    public $depends = [
-        'yii\web\JqueryAsset',
-    ];
 }

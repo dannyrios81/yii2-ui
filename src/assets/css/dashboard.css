@@ -9,11 +9,18 @@
     --dashboard-gray-50: #F9FAFB;
     --dashboard-gray-100: #F3F4F6;
     --dashboard-gray-200: #E5E7EB;
+    --dashboard-gray-300: #D1D5DB;
     --dashboard-gray-400: #9CA3AF;
     --dashboard-gray-600: #6B7280;
     --dashboard-gray-800: #1F2937;
     --dashboard-sidebar-width: 280px;
     --dashboard-header-height: 70px;
+    /* RGB triplets so Bootstrap's .bg-opacity-* utilities keep working */
+    --dashboard-primary-rgb: 99, 102, 241;
+    --dashboard-success-rgb: 16, 185, 129;
+    --dashboard-danger-rgb: 239, 68, 68;
+    --dashboard-warning-rgb: 245, 158, 11;
+    --dashboard-info-rgb: 59, 130, 246;
 }
 
 * {
@@ -119,7 +126,7 @@ body {
     z-index: 999;
     display: flex;
     align-items: center;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 }
 
 .dashboard-content {
@@ -318,20 +325,28 @@ body {
     color: var(--dashboard-info) !important;
 }
 
+.bg-primary {
+    background-color: rgba(var(--dashboard-primary-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-primary {
+    color: var(--dashboard-primary) !important;
+}
+
 .bg-success {
-    background-color: var(--dashboard-success) !important;
+    background-color: rgba(var(--dashboard-success-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .bg-danger {
-    background-color: var(--dashboard-danger) !important;
+    background-color: rgba(var(--dashboard-danger-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .bg-warning {
-    background-color: var(--dashboard-warning) !important;
+    background-color: rgba(var(--dashboard-warning-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .bg-info {
-    background-color: var(--dashboard-info) !important;
+    background-color: rgba(var(--dashboard-info-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .shadow-sm {

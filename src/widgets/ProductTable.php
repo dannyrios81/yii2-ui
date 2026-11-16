@@ -12,6 +12,8 @@ use yii\helpers\ArrayHelper;
  */
 class ProductTable extends BaseWidget
 {
+    use \iguazoft\ui\widgets\DataProviderTrait;
+
     /**
      * @var array|\yii\data\BaseDataProvider the data to be displayed as rows.
      * Can be a simple array of items or a Yii2 DataProvider.
@@ -72,6 +74,8 @@ class ProductTable extends BaseWidget
     
     public function run()
     {
+        $this->resolveDataProvider();
+
         $parts = [];
         
         $parts[] = Html::beginTag('div', $this->options);
@@ -186,9 +190,8 @@ class ProductTable extends BaseWidget
             $value = call_user_func($column['value'], $model, $index);
         }
         
-        if (isset($column['format'])) {
-            $value = $this->formatValue($value, $column['format']);
-        }
+        // Values are HTML-encoded unless the column asks for 'html' or 'raw'
+        $value = $this->formatValue($value, $column['format'] ?? 'text');
         
         $contentOptions = $column['contentOptions'] ?? [];
         
@@ -230,9 +233,9 @@ class ProductTable extends BaseWidget
             case 'number':
                 return number_format($value);
             case 'rating':
-                return Html::tag('span', '⭐ ' . $value, ['class' => 'text-warning']);
+                return Html::tag('span', '<i class="bi bi-star-fill"></i> ' . Html::encode($value), ['class' => 'text-warning']);
             case 'badge':
-                return Html::tag('span', $value, ['class' => 'badge bg-light text-dark']);
+                return Html::tag('span', Html::encode($value), ['class' => 'badge bg-light text-dark']);
             case 'stock':
                 return Html::tag('span', 
                     '<i class="bi bi-box"></i> ' . number_format($value),
@@ -243,8 +246,11 @@ class ProductTable extends BaseWidget
                     '<i class="bi bi-check-circle"></i> ' . number_format($value),
                     ['class' => 'text-success']
                 );
+            case 'html':
+            case 'raw':
+                return (string) $value;
             default:
-                return $value;
+                return Html::encode($value);
         }
     }
     
