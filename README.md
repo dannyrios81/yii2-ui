@@ -72,6 +72,8 @@ use iguazoft\ui\widgets\Sidebar;
 
 Copy [`examples/`](examples/) into a Yii2 app for a complete dashboard and a forms page.
 
+![yii2-ui in action](https://raw.githubusercontent.com/dannyrios81/yii2-ui/main/docs/screenshots/demo.gif)
+
 ## Components
 
 ![Forms, alerts, timeline, tabs and accordion](https://raw.githubusercontent.com/dannyrios81/yii2-ui/main/docs/screenshots/components.png)

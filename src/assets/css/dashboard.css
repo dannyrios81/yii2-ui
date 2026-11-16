@@ -333,6 +333,22 @@ body {
     color: var(--dashboard-primary) !important;
 }
 
+/* Bootstrap components that use the primary color follow the theme */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: var(--dashboard-primary);
+}
+
+.page-item.active .page-link {
+    background-color: var(--dashboard-primary);
+    border-color: var(--dashboard-primary);
+}
+
+.form-check-input:checked {
+    background-color: var(--dashboard-primary);
+    border-color: var(--dashboard-primary);
+}
+
 .bg-success {
     background-color: rgba(var(--dashboard-success-rgb), var(--bs-bg-opacity, 1)) !important;
 }

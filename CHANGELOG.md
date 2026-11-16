@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Fixed
+- Active pills, active pagination items and checked checkboxes/switches use the theme color instead of Bootstrap blue.
+
+### Added
+- Animated demo in the README.
+
 ## [1.1.0] - 2026-11-16
 
 First release installable with `composer require iguazoft/yii2-ui`: the `v1.0.0` tag pointed to a commit without `composer.json` at the repository root, so Packagist only offered `dev-main`.
